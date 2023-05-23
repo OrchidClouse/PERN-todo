@@ -1,7 +1,8 @@
-import React,{useState} from 'react';
+import React from 'react';
 import {Link} from "react-router-dom";
-import logo from "../../Logo/vector/default-monochrome.svg"
-import { ReactSVG } from 'react-svg'
+import DefaulLogo from '../../components/GiraLogo/Logos';
+// import logo from "../../Logo/vector/default-monochrome.svg"
+// import { ReactSVG } from 'react-svg'
 
 function LoginForm() {
 
@@ -9,18 +10,11 @@ function LoginForm() {
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <Link to="/" className="mx-auto w-max">
-            <ReactSVG
-            onError={() => console.log('Error logo')}
-            src={logo}
-            className="w-32 mx-auto mt-10"
-          />
-          </Link>
+        <DefaulLogo />
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Sign in to your account
           </h2>
         </div>
-
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" action="#" method="POST">
             <div>
