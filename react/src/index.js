@@ -5,45 +5,38 @@ import Root from "./Routes/root"
 import ErrPage from "./mainErrorPage";
 import LoginForm from "./Routes/Login/LoginForm";
 import SignUpForm from "./Routes/Register/SignUpForm";
-import Footer from './components/Footer';
-import Header from './components/Header';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Footer from './Routes/Components/Footer/Footer';
+import Header from './Routes/Components/Header/Header';
+import { createBrowserRouter, RouterProvider} from "react-router-dom";
 
 
-const router = createBrowserRouter([
-  // {
-  //   path: "/",
-  //   element: <Root />,
-  //   errorElement: <ErrPage />,
-  // },
-  // {
-  //   path: "/login",
-  //   element: <LoginForm />
-  // },
-  // {
-  //   path: "/signup",
-  //   element: <SignUpForm />
-  // },
+const routes = [
   {
     path: "/",
-    element: <Root />,
+    element: <Root/>,
+    errorElement: <ErrPage />
   },
   {
-  path: "/login",
+    path: "/login",
     element: <LoginForm />,
   },
   {
     path: "/signup",
     element: <SignUpForm />,
   },
-])
+]
+
+
+const router = createBrowserRouter(routes, {
+  basename: "/"
+})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    <Header />
-      <RouterProvider router={router} />
-    <Footer />
+      <Header />
+        <RouterProvider router={router} />
+      <Footer />
   </>
 );
 
