@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from "../../../Logo/vector/default-monochrome.svg"
+import logo from "../../Logo/vector/default-monochrome.svg"
 import { ReactSVG } from 'react-svg'
 
 // w-32 mt-10

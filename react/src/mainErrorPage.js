@@ -1,18 +1,11 @@
-import {Link, useRouteError} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 export  default function ErrPage(){
-  const err = useRouteError()
 
   return(
-    // <div id="err-page" className="grid place-items-center h-screen">
-    //   <div>
-    //     <h1 className="text-4xl font-semibold mx-auto py-4">Error page</h1>
-    //     <div className="error-status px-1">Error: {err.status === 404 ? "Page Not Found" : err.status}</div>
-    //   </div>
-    // </div>
     <div className="grid h-screen px-4 bg-white place-content-center">
       <div className="text-center">
-        <h1 className="font-black text-gray-200 text-9xl">{err.status}</h1>
+        <h1 className="font-black text-gray-200 text-9xl">404</h1>
 
         <p className="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">
           Uh-oh!
@@ -21,7 +14,7 @@ export  default function ErrPage(){
         <p className="mt-4 text-gray-500">We can't find that page.</p>
 
         <Link
-          href="/"
+          to="/"
           className="inline-block px-5 py-3 mt-6 text-sm font-medium text-white bg-indigo-600 rounded hover:bg-indigo-700 focus:outline-none focus:ring"
         >
           Go Back Home

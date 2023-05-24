@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-// grid h-screen px-4 bg-white place-content-center text-xl
+
 export default function Root() {
   return (
     <div>

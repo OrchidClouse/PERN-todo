@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import DefaulLogo from '../Components/GiraLogo/Logos';
+import DefaulLogo from '../../Components/GiraLogo/Logos';
 
 function SignUpForm() {
   return (
