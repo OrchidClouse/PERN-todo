@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="bg-white">
+    <header className="bg-white border-b-2">
         <div
           className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8 my-2"
         >
