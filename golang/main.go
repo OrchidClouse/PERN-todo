@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/OrchidClouse/PNGR-todo/golang"
+)
 
 func main() {
-	fmt.Println("Sos22y")
+	fleetGo()
 }

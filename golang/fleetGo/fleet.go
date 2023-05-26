@@ -1,7 +1,11 @@
-package fleetGo
+package main
 
 import "fmt"
 
-func main() {
+func fleetGo() {
 	fmt.Println("Hello Fleet")
+}
+
+func main(){
+	fleetGo()
 }

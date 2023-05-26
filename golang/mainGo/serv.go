@@ -1,7 +1,7 @@
-package mainGo
+package main
 
 import "fmt"
 
-func serv() {
+func main() {
 	fmt.Println("Sosy")
 }
