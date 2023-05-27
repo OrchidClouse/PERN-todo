@@ -1,8 +1,29 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from "react-router-dom";
 import DefaulLogo from '../../Components/GiraLogo/Logos';
+import {uniqueId} from "lodash"
+
 
 function SignUpForm() {
+  const initialState = {
+    user_id: Number(uniqueId()),
+    email: "",
+    password: "",
+    username: "",
+  }
+
+  const [values, setValues] = useState(initialState);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setValues({
+      ...values,
+      [name]: value,
+    });
+  };
+
+
+
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -16,11 +37,31 @@ function SignUpForm() {
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" action="#" method="POST">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+              <label  className="block text-sm font-medium leading-6 text-gray-900">
+                Username
+              </label>
+              <div className="mt-2">
+                <input
+                  onChange={handleInputChange}
+                  id="username"
+                  name="username"
+                  type="username"
+                  value={values.username}
+                  autoComplete="username"
+                  required
+                  className="block w-full rounded-md border-0 py-1.5 pl-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  placeholder="Your username"/>
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium leading-6 text-gray-900">
                 Email address
               </label>
               <div className="mt-2">
                 <input
+                  onChange={handleInputChange}
+                  value={values.email}
                   id="email"
                   name="email"
                   type="email"
@@ -32,11 +73,14 @@ function SignUpForm() {
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+              <label className="block text-sm font-medium leading-6 text-gray-900">
                 Password
               </label>
               <div className="mt-2">
+
                 <input
+                  onChange={handleInputChange}
+                  value={values.password}
                   id="password"
                   name="password"
                   type="password"
