@@ -17,7 +17,7 @@ var people []User
 func main() {
 	http.HandleFunc("/", mainHandler)
 	fmt.Println("server started on port 8080")
-	err := http.ListenAndServe("localhost:8080", nil)
+	err := http.ListenAndServe("localhost:3001", nil)
 	if err != nil {
 		log.Fatal(err)
 	}
