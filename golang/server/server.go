@@ -50,5 +50,5 @@ func postUser(w http.ResponseWriter, r *http.Request) {
 
 	people = append(people, person)
 	fmt.Println(people)
-	fmt.Fprintf(w, "post new person: '%v'", person)
+	fmt.Fprintf(w, "post new perso: '%v'", person)
 }
