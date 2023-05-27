@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 function CreateProject(){
 return(
 <>
-<div className="bg-[url('C:\programing\PNGR-todo\react\src\Logo\vector\logo4.png')] h-screen w-screen bg-no-repeat">
+<div className="bg-[url('https://wmpics.space/di-AFZW.png')] w-screen h-screen bg-no-repeat">
   <div className='flex mx-auto w-0 ml-96'>
         <div className='mt-40 h-96 relative'>
             <div className='pt-20 w-72'>
