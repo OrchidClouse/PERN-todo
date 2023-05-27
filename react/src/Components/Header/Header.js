@@ -5,15 +5,17 @@ import {Link} from "react-router-dom";
 const Header = () => {
   return (
     <header className="bg-white border-b-2">
-        <div
-          className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8 my-2"
+        
+        <div 
+          className="mx-auto flex flex-1 h-16 items-center gap-8 px-4 sm:px-6 lg:px-8 w-full my-2 justify-normal"
         >
-            <Link className="block text-teal-600" to="/">
+            <Link className="block text-teal-600 justify-start" to="/">
+              
                 <span className="sr-only">Home</span>
                 <DefaulLogo width="w-24" />
             </Link>
 
-            <div className="flex flex-1 items-center justify-end md:justify-between">
+            <div className="flex flex-1 items-center md:justify-between">
                 <nav aria-label="Site Nav" className="hidden md:block">
                     <ul className="flex items-center gap-6 text-sm">
                         <li>
