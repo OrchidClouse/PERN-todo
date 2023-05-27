@@ -5,10 +5,10 @@ import {Link} from "react-router-dom";
 function CreateProject(){
   return(
     <>
-      <div className="bg-[url('C:\programing\PNGR-todo\react\src\Logo\vector\logo4.png')] h-screen w-screen bg-no-repeat">
+      <div className="bg-[url('https://i.postimg.cc/sxCNy923/logo4-Edit.png')] h-customVh bg-right-bottom bg-no-repeat">
         <div className='flex mx-auto w-0 ml-96'>
           <div className='mt-40 h-96 relative'>
-            <div className='pt-20 w-72'>
+            <div className='pt-20 mb-44 w-72'>
               <h1 className='text-3xl text-center mb-6'>Create Project</h1>
               <label htmlFor="name" className="block font-medium leading-6 text-xs text-gray-900 text-left ">
                 Name Project*
