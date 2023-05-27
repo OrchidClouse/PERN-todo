@@ -6,6 +6,7 @@ import SignUpForm from "./Routes/Register/SignUpForm"
 import ErrPage from './mainErrorPage'
 import Layout from './Components/Layout'
 import RecoverPassword from './Routes/RecoverPassword/RecoverPassword'
+import CreateProject from './Routes/CreateProject/NewProject'
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
                 <Route path='login' element={<LoginForm />}/>
                 <Route path='signup' element={<SignUpForm />}/>
                 <Route path='recover' element={<RecoverPassword />} />
+                <Route path='projects' element = {<CreateProject />}></Route>
                 <Route path='*' element={<ErrPage />} />
             </Route>
         </Routes>
