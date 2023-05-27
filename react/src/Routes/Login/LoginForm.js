@@ -1,10 +1,15 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link,useNavigate} from "react-router-dom";
 import DefaulLogo from '../../Components/GiraLogo/Logos';
 // import logo from "../../Logo/vector/default-monochrome.svg"
 // import { ReactSVG } from 'react-svg'
 
 function LoginForm() {
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `/projects`; 
+    navigate(path);
+  }
 
   return (
     <>
@@ -59,6 +64,7 @@ function LoginForm() {
             <div>
               <button
                 type="submit"
+                onClick={routeChange}
                 className="flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Sign in
