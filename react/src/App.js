@@ -7,6 +7,7 @@ import Layout from './Components/Layout'
 import RecoverPassword from './Routes/RecoverPassword/RecoverPassword'
 import CreateProject from './Routes/CreateProject/NewProject'
 import SignUpForm from "./Routes/RegisterPage/SignUpValid";
+import WorksPage from './Routes/Projects list/ProjectsList'
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
                 <Route path='signup' element={<SignUpForm />} />
                 <Route path='recover' element={<RecoverPassword />} />
                 <Route path='projects' element = {<CreateProject />} />
+                <Route path='your-work' element={<WorksPage/>}/>
                 <Route path='*' element={<ErrPage />} />
             </Route>
         </Routes>
