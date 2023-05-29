@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 function CreateProject(){
   return(
     <>
-      <div className="flex relative">
+      <div className="flex relative ">
         <div className='absolute hidden 2xl:block right-14 top-20'>
         <img src='https://wmpics.space/di-KSU8.png'/>
         </div>

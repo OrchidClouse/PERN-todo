@@ -34,12 +34,13 @@ const SignUpForm = () => {
           if (!values.username) {
             errors.username = "Required"
           }
+          else if(values.username.length < 3){
+            errors.username = "Small username"
+          }
           if (!values.password) {
             errors.password = "Required"
           }else if(values.password.length < 6) {
             errors.password = "Small password"
-          }else if(values.username.length < 5){
-            errors.username = "Small username"
           }
 
           return errors;
