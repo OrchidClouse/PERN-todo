@@ -1,8 +1,6 @@
-import {Link, useRouteError} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 export default function ErrPage(){
-  const err = useRouteError()
-  console.log(err)
   return(
     <div className="grid h-screen px-4 bg-white place-content-center">
       <div className="text-center">

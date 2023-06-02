@@ -1,8 +1,13 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 
 function CreateProject(){
+  let navigate = useNavigate();
+  const routeChange = () =>{
+    let path = `/your-work`;
+    navigate(path);
+  }
   return(
     <>
       <div className="flex relative ">
@@ -29,6 +34,7 @@ function CreateProject(){
               <button
                 type="submit"
                 className="bg-blue-600 rounded-md text-white w-32 h-10"
+                onClick={routeChange}
               >
                 Create Project
               </button>

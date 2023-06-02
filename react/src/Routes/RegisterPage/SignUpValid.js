@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { Formik } from 'formik';
 import {useNavigate} from "react-router-dom";
-import {uniqueId} from "lodash";
 import DefaulLogo from "../../Components/GiraLogo/Logos";
+import axios from 'axios';
 
 
 const SignUpForm = () => {
@@ -11,6 +11,18 @@ const SignUpForm = () => {
     let path = `/projects`;
     navigate(path);
   }
+
+  // const handleSubmit = (e, values) => {
+  //   e.preventDefault();
+  //   axios.post('/signup', {values})
+  //     .then(response => {
+  //       console.log(response.data);
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // }
+
   return(
     <div>
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -33,6 +45,8 @@ const SignUpForm = () => {
           }
           if (!values.username) {
             errors.username = "Required"
+          }else if(values.username.length < 3){
+            errors.username = "Small username"
           }
           else if(values.username.length < 3){
             errors.username = "Small username"
@@ -42,7 +56,6 @@ const SignUpForm = () => {
           }else if(values.password.length < 6) {
             errors.password = "Small password"
           }
-
           return errors;
         }}
         onSubmit={(values, {setSubmitting}) => {
@@ -50,6 +63,8 @@ const SignUpForm = () => {
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
           }, 400);
+          console.log(values)
+          // handleSubmit()
           routeChange()
         }}
       >

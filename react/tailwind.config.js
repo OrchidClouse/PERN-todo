@@ -3,7 +3,12 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
+  // corePlugins: {
+  //   preflight: false,
+  // },
+
   theme: {
+
     backgroundPosition: {
       bottom: 'bottom',
       'bottom-4': 'center bottom 1rem',
