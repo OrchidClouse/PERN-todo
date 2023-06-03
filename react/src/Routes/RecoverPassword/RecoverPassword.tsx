@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from "react-router-dom"
-import DefaulLogo from '../../Components/GiraLogo/Logos'
+import DefaultLogo from '../../Components/GiraLogo/Logos'
 
 
 const RecoverPassword = () => {
@@ -8,7 +8,7 @@ const RecoverPassword = () => {
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <DefaulLogo width="w-32" margin="mt-10"/>
+          <DefaultLogo width="w-32" margin="mt-10"/>
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Reset password
           </h2>

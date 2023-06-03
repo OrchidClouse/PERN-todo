@@ -1,10 +1,10 @@
 import React from 'react';
 import {Link, useNavigate} from "react-router-dom";
 
-function WorksPage(props) {
+function WorksPage() {
     let navigate = useNavigate();
     const routeChange = () =>{
-        let path = `/projects`;
+        var path = `/projects`;
         navigate(path);
     }
     return (
@@ -25,10 +25,10 @@ function WorksPage(props) {
                                 <p className='pl-4 pt-4'>QUICK LINKS:</p>
                             </div>
                             <div>
-                                <Link className='hover:bg-sky-100 rounded-md pl-4 text-sm'>• My current task</Link>
+                                <Link to="/" className='hover:bg-sky-100 rounded-md pl-4 text-sm'>• My current task</Link>
                             </div>
                             <div>
-                                <Link className='hover:bg-sky-100 rounded-md pl-4 text-sm'>• Completed task</Link>
+                                <Link to="/" className='hover:bg-sky-100 rounded-md pl-4 text-sm'>• Completed task</Link>
                             </div>
                         </div>
 

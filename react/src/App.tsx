@@ -8,7 +8,7 @@ import RecoverPassword from './Routes/RecoverPassword/RecoverPassword'
 import CreateProject from './Routes/CreateProject/NewProject'
 import SignUpForm from "./Routes/RegisterPage/SignUpValid";
 import WorksPage from './Routes/ProjectsList/ProjectsList'
-import TestResponse from "./Routes/testResponse";
+// import TestResponse from "./Routes/testResponse";
 
 const App = () => {
   return (
@@ -21,7 +21,6 @@ const App = () => {
                 <Route path='recover' element={<RecoverPassword />} />
                 <Route path='projects' element = {<CreateProject />} />
                 <Route path='projectslist' element={<WorksPage/>}/>
-                <Route path='testdata' element={<TestResponse />}/>
                 <Route path='*' element={<ErrPage />} />
             </Route>
         </Routes>

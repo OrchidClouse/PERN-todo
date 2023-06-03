@@ -1,5 +1,5 @@
 import React from 'react'
-import DefaulLogo from "../GiraLogo/Logos";
+import DefaultLogo from "../GiraLogo/Logos";
 import {Link} from "react-router-dom";
 
 const Header = () => {
@@ -12,7 +12,7 @@ const Header = () => {
             <Link className="block text-teal-600 justify-start" to="/">
               
                 <span className="sr-only">Home</span>
-                <DefaulLogo width="w-24" />
+                <DefaultLogo width="w-24"/>
             </Link>
 
             <div className="flex flex-1 items-center md:justify-between">
