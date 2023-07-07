@@ -1,37 +1,25 @@
 import React, {useState} from 'react';
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import DefaultLogo from "../../Components/GiraLogo/Logos";
-import {useAppSelector} from "../../Shared/hooks";
 import { Button, Form, Input } from 'antd';
+import {InitValues} from "./SignUp";
 
-
-
-
-const SignUpForm = () => {
-    // const
-    const initialValue = {
-        username: "",
-        password: "",
-        email: ""
-    }
-    const [values, setValues] = useState(initialValue)
+type PropsInitValues = {
+    values: InitValues
+    setValues: React.Dispatch<React.SetStateAction<InitValues>>
+}
+const SignUpForm = (props: PropsInitValues) => {
+    const {values, setValues} = props
     let navigate = useNavigate();
     const routeChange = () =>{
-    let path = `/projects`;
-    navigate(path);
+        let path = `/projects`;
+        navigate(path);
     }
-    type Values = {
-      email: string
-      password: string
-      username: string
-    }
-
     const submitHandler = () =>{
         console.log(values)
         routeChange()
 
     }
-
     const getData = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {id, value} = e.target
         setValues({
@@ -60,34 +48,32 @@ const SignUpForm = () => {
             >
 
                 <Form.Item
-                    className="px-16 mr-20"
                     label="Email"
                     name="email"
                     rules={[{ required: true, message: 'Please input your email!', type: 'email'}]}
                 >
-                    <Input onChange={getData} value={values.email} />
+                    <Input className="w-32 md:w-44 lg:w-56" onChange={getData} value={values.email} />
                 </Form.Item>
                 <Form.Item
-                    className="px-16 mr-20"
                     label="Username"
                     name="username"
                     rules={[{ required: true, message: 'Please input your username!' }]}
                 >
-                    <Input onChange={getData} value={values.username}/>
+                    <Input className="w-32 md:w-44 lg:w-56" onChange={getData} value={values.username}/>
                 </Form.Item>
 
                 <Form.Item
-                    className="px-16 mr-20"
                     label="Password"
                     name="password"
                     rules={[{ required: true, message: 'Please input your password!' }]}
                 >
-                    <Input.Password onChange={getData} value={values.password} />
+                    <Input.Password className="w-32 md:w-44 lg:w-56" onChange={getData} value={values.password} />
+
                 </Form.Item>
 
                 <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
                     <Button className="bg-blue-500 w-24" type="primary" htmlType="submit">
-                        Signup
+                        Sign up
                     </Button>
                 </Form.Item>
             </Form>

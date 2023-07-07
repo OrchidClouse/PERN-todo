@@ -31,20 +31,20 @@ function LoginForm() {
 
         >
           <Form.Item
-              className="px-16 mr-20"
+
               label="Email"
               name="email"
               rules={[{required: true, type: "email", message: "Enter correct email"}]}
           >
-            <Input />
+            <Input className="w-32 md:w-44 lg:w-56" />
           </Form.Item>
           <Form.Item
-              className="px-16 mr-20"
+
               label="Password"
               name="password"
               rules={[{required: true, message: "This field cannot be empty"}]}
           >
-            <Input.Password />
+            <Input.Password className="w-32 md:w-44 lg:w-56" />
           </Form.Item>
           <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
             <Checkbox>Remember me</Checkbox>

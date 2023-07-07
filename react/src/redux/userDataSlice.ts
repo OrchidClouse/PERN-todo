@@ -19,10 +19,14 @@ const userDataSlice = createSlice({
     name: 'userData',
     initialState,
     reducers: {
-        getData(state, action: PayloadAction<object>){
+        getData(state, action: PayloadAction<string>){
             console.log(state)
             console.log(action)
-
+            state.values.push({
+                username: action.payload,
+                password: action.payload,
+                email: action.payload
+            })
         }
     }
 })
