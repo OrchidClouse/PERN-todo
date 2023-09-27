@@ -1,1 +1,1 @@
-## PNGR stack is postgres + nginx + golang + react
+## PNGR stack is postgresql + express + react + node.js
