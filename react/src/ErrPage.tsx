@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 
-export default function ErrPage(){
+export const ErrPage = () =>{
   return(
     <div className="grid h-screen px-4 bg-white place-content-center">
       <div className="text-center">

@@ -1,5 +1,7 @@
 import {DefaultLogo} from 'Components';
 import {Link} from "react-router-dom";
+import { Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 
 export const Header = () => {
   return (
@@ -46,8 +48,9 @@ export const Header = () => {
                         >
                             Register
                         </Link>
-                    </div>
 
+                    </div>
+                    
                     <button
                       className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
                     >

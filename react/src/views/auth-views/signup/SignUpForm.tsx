@@ -1,21 +1,22 @@
 import React, {useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
-import {DefaultLogo} from "../../../Components/utils/GiraLogo";
+import {DefaultLogo} from "Components";
 import { Button, Form, Input } from 'antd';
 import {InitValues} from "./SignUp";
 import { RegisterFormDTO } from 'api/auth.dto';
 import * as Api from '../../../api'
 import { setCookie } from 'nookies';
 
-type ISignUpFormProps = {
+interface ISignUpFormProps {
     values: InitValues
     setValues: React.Dispatch<React.SetStateAction<InitValues>>
 }
+
 const SignUpForm: React.FC<ISignUpFormProps> = ({values, setValues}) => {
 
     let navigate = useNavigate();
     const routeChange = () =>{
-        navigate('/projects');
+        navigate('/projects-list');
     }
     const submitHandler = async (values: RegisterFormDTO) =>{
         try{

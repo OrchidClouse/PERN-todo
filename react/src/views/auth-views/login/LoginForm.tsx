@@ -19,8 +19,9 @@ export const LoginForm = () => {
       setCookie(null, '_token', token, {
         path: '/',
       })
-      navigate(`/projects`);
+      navigate(`/projects-list`);
       console.log('success login')
+      
     } catch (err) {
       console.error('LoginForm', err)
     }
