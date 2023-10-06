@@ -2,7 +2,7 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 
 type Values = {
-    username: string;
+    fullName: string;
     password: string;
     email: string;
 }
@@ -23,7 +23,7 @@ const userDataSlice = createSlice({
             console.log(state)
             console.log(action)
             state.values.push({
-                username: action.payload,
+                fullName: action.payload,
                 password: action.payload,
                 email: action.payload
             })

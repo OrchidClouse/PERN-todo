@@ -1,9 +1,9 @@
 import React from 'react'
 import {Link} from "react-router-dom"
-import DefaultLogo from '../../Components/GiraLogo/Logos'
+import {DefaultLogo} from '../../../Components/utils/GiraLogo'
 
 
-const RecoverPassword = () => {
+const ForgotPassword = () => {
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -54,4 +54,4 @@ const RecoverPassword = () => {
   )
 }
 
-export default RecoverPassword
+export default ForgotPassword

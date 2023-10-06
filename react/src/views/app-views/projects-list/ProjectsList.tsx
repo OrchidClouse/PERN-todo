@@ -1,15 +1,17 @@
-import React from 'react';
 import {Link, useNavigate} from "react-router-dom";
 
-function WorksPage() {
+const WorksPage = () => {
+
     let navigate = useNavigate();
+
     const routeChange = () =>{
-        var path = `/projects`;
+        const path = `/projects`;
         navigate(path);
     }
+
     return (
         <>
-            <div className=''>
+            <div>
                 <div className='w-full'>
                     <h1 className='text-3xl ml-7 font-medium mt-10'>Your work</h1>
                 </div>

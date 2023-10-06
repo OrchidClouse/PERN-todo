@@ -1,6 +1,7 @@
 import React from 'react';
-import {SimplePage} from "../../Shared/Constructor";
-import LoginForm from "./LoginForm";
+import {SimplePage} from "../../../Components/shared/SimplePage";
+import {LoginForm} from "./LoginForm";
+
 
 const Login = () => {
     return (

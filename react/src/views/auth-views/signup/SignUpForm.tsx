@@ -1,21 +1,36 @@
 import React, {useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
-import DefaultLogo from "../../Components/GiraLogo/Logos";
+import {DefaultLogo} from "../../../Components/utils/GiraLogo";
 import { Button, Form, Input } from 'antd';
 import {InitValues} from "./SignUp";
+import { RegisterFormDTO } from 'api/auth.dto';
+import * as Api from '../../../api'
+import { setCookie } from 'nookies';
 
-type PropsInitValues = {
+type ISignUpFormProps = {
     values: InitValues
     setValues: React.Dispatch<React.SetStateAction<InitValues>>
 }
-const SignUpForm = (props: PropsInitValues) => {
-    const {values, setValues} = props
+const SignUpForm: React.FC<ISignUpFormProps> = ({values, setValues}) => {
+
     let navigate = useNavigate();
     const routeChange = () =>{
-        let path = `/projects`;
-        navigate(path);
+        navigate('/projects');
     }
-    const submitHandler = () =>{
+    const submitHandler = async (values: RegisterFormDTO) =>{
+        try{
+            const response = await Api.auth.register(values);
+            const { token } = response;
+
+            setCookie(null, '_token', token, {
+                path: '/',
+              })
+        
+            navigate('/')
+        }
+        catch(err){
+            console.log(err)
+        }
         console.log(values)
         routeChange()
 
@@ -32,7 +47,7 @@ const SignUpForm = (props: PropsInitValues) => {
         <div>
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <DefaultLogo width="w-32" margin="mt-10" />
-                <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+                <h2 className="mt-8 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                     Sign up
                 </h2>
             </div>
@@ -55,11 +70,11 @@ const SignUpForm = (props: PropsInitValues) => {
                     <Input className="w-32 md:w-44 lg:w-56" onChange={getData} value={values.email} />
                 </Form.Item>
                 <Form.Item
-                    label="Username"
-                    name="username"
-                    rules={[{ required: true, message: 'Please input your username!' }]}
+                    label="Fullname"
+                    name="fullname"
+                    rules={[{ required: true, message: 'Please input your fullname!' }]}
                 >
-                    <Input className="w-32 md:w-44 lg:w-56" onChange={getData} value={values.username}/>
+                    <Input  className="w-32 md:w-44 lg:w-56" onChange={getData} value={values.fullName}/>
                 </Form.Item>
 
                 <Form.Item

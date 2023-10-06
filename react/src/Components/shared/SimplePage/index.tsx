@@ -10,7 +10,7 @@ type SimplePageProps = React.PropsWithChildren<{
 }>
 
 const {Content} = Layout
-const SimplePage = ({center, title ,children}: SimplePageProps): JSX.Element => {
+export const SimplePage = ({center, title ,children}: SimplePageProps): JSX.Element => {
     return(
         <Content style={{ padding: '0 50px' }}>
             {title &&
@@ -24,12 +24,11 @@ const SimplePage = ({center, title ,children}: SimplePageProps): JSX.Element => 
     )
 }
 
-
 type ContentProps = {
     children: ReactNode
     center: boolean;
 }
-const MainContent = ({center, children}: ContentProps): JSX.Element => {
+export const MainContent = ({center, children}: ContentProps): JSX.Element => {
     if(!center){
         return <>{children}</>
     }
@@ -43,5 +42,3 @@ const MainContent = ({center, children}: ContentProps): JSX.Element => {
     )
 
 }
-
-export {MainContent, SimplePage}

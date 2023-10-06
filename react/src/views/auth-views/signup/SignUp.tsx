@@ -1,18 +1,19 @@
 import React, {useState} from 'react';
 import SignUpForm from "./SignUpForm";
-import {SimplePage} from "../../Shared/Constructor";
+import {SimplePage} from "../../../Components/shared/SimplePage";
 import {Link, useNavigate} from "react-router-dom";
 
 
 export type InitValues = {
-    username: string
+    fullName: string
     password: string
     email: string
 }
+
 const SignUp = () => {
 
     const initialValue: InitValues = {
-        username: "",
+        fullName: "",
         password: "",
         email: ""
     }
