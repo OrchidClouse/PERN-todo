@@ -5,12 +5,11 @@ import {Form, Button, Input, Checkbox} from "antd"
 import { LoginFormDTO } from 'api/auth.dto';
 import * as Api from '../../../api'
 import { setCookie } from 'nookies';
-
+import { getMe } from 'api/auth'
 
 export const LoginForm = () => {
 
-  let navigate = useNavigate();
-
+  let navigate = useNavigate(); 
 
   const onSubmit = async (values: LoginFormDTO) => {
     try {
@@ -19,7 +18,7 @@ export const LoginForm = () => {
       setCookie(null, '_token', token, {
         path: '/',
       })
-      navigate(`/projects-list`);
+      navigate(`/projects`);
       console.log('success login')
       
     } catch (err) {

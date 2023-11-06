@@ -1,20 +1,13 @@
-import {GET_DATA} from './usersConsts'
+import {GET_USERS, SET_USER} from './usersConsts'
+import { User } from 'api/auth.dto'
+import { setUser } from './usersActions'
 
-const initialState = {
-    values: [],
-}
+const userInitialState: User | null = null
 
-export const userReducer = (state = initialState, action: any) => {
+export const userReducer = (state = userInitialState, action: ReturnType<typeof setUser>) => {
     switch (action.type) {
-        case GET_DATA:
-            return {
-                ...state,
-                values: [...state.values, {
-                    fullName: action.payload,
-                    password: action.payload,
-                    email: action.payload
-                }]
-            }
+        case SET_USER:
+            return action.payload
         default:
             return state;
     }

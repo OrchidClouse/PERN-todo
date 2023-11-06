@@ -2,38 +2,48 @@ import React, {useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import {DefaultLogo} from "Components";
 import { Button, Form, Input } from 'antd';
-import {InitValues} from "./SignUp";
+// import {InitValues} from "./SignUp";
 import { RegisterFormDTO } from 'api/auth.dto';
 import * as Api from '../../../api'
 import { setCookie } from 'nookies';
+import { useDispatch, useSelector } from 'react-redux';
+import { setUser } from 'store/users/usersActions';
+import { RootState } from 'store';
 
-interface ISignUpFormProps {
-    values: InitValues
-    setValues: React.Dispatch<React.SetStateAction<InitValues>>
-}
 
-const SignUpForm: React.FC<ISignUpFormProps> = ({values, setValues}) => {
+// interface ISignUpFormProps {
+//     fullName: string
+//     password?: string
+//     email: string
+// }
+// : React.FC<ISignUpFormProps>
 
-    let navigate = useNavigate();
-    const routeChange = () =>{
-        navigate('/projects-list');
-    }
+export const SignUpForm = () => {
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate();
+
+    const [values, setValues] = useState({
+        name: "",
+        password: "",
+        email: ""
+    })
+    
     const submitHandler = async (values: RegisterFormDTO) =>{
         try{
             const response = await Api.auth.register(values);
             const { token } = response;
-
+            
             setCookie(null, '_token', token, {
                 path: '/',
-              })
-        
+            })
+            // dispatch(setUser(values))
             navigate('/')
         }
         catch(err){
-            console.log(err)
+            console.error(err)
         }
-        console.log(values)
-        routeChange()
+        navigate('/create-project');
 
     }
     const getData = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,6 +51,7 @@ const SignUpForm: React.FC<ISignUpFormProps> = ({values, setValues}) => {
         setValues({
             ...values,
             [id]: value,
+            
         })
     }
 
@@ -71,11 +82,11 @@ const SignUpForm: React.FC<ISignUpFormProps> = ({values, setValues}) => {
                     <Input className="w-32 md:w-44 lg:w-56" onChange={getData} value={values.email} />
                 </Form.Item>
                 <Form.Item
-                    label="Fullname"
-                    name="fullname"
-                    rules={[{ required: true, message: 'Please input your fullname!' }]}
+                    label="Name"
+                    name="name"
+                    rules={[{ required: true, message: 'Please input your name!' }]}
                 >
-                    <Input  className="w-32 md:w-44 lg:w-56" onChange={getData} value={values.fullName}/>
+                    <Input  className="w-32 md:w-44 lg:w-56" onChange={getData} value={values.name}/>
                 </Form.Item>
 
                 <Form.Item
@@ -96,5 +107,3 @@ const SignUpForm: React.FC<ISignUpFormProps> = ({values, setValues}) => {
         </div>
     )
 };
-
-export default SignUpForm;

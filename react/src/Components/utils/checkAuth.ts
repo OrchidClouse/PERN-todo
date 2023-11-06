@@ -1,5 +1,5 @@
-import axios from '../axiosConfig'
-import * as Api from '../api'
+import axios from '../../axiosConfig'
+import * as Api from '../../api'
 import { useNavigate } from 'react-router-dom'
 
 export const checkAuth = async () => {

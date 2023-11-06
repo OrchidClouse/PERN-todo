@@ -1,26 +1,32 @@
 import React, {useState, useEffect} from 'react'
-import {Routes, Route, Navigate, BrowserRouter} from "react-router-dom"
+import {Routes, Route, Navigate, BrowserRouter as Router} from "react-router-dom"
 import {Root} from "./views/app-views/main-page"
 import {ErrPage} from './ErrPage'
 import ForgotPassword from './views/auth-views/forgot-password/ForgotPassword'
-import WorksPage from './views/app-views/projects-list/ProjectsList'
-import SignUp from "./views/auth-views/signup/SignUp";
-import { Layout } from 'Components'
-import Login from "./views/auth-views/login/Login";
+import {Projects} from './views/app-views/projects/Projects'
+import {SignUpForm} from 'views/auth-views/signup/SignUpForm'
+import { LoginForm } from 'views/auth-views/login/LoginForm'
+import { Layout, Header } from 'Components'
 import { CreateProject } from 'views/app-views/create-project'
-import { PrivateRoute } from 'routes/PrivateRoute'
+import { CurrentProject } from 'views/app-views/currentProject'
+// import NotAuthPage from 'views/auth-views/not-auth-page'
 
 export const App = () => (
-    <Routes>
-      <Route path='/' element={<Layout />}>
-          <Route index element={<Root />} />
-          <Route path='login' element={<Login />} />
-          <Route path='register' element={<SignUp />} />
-          <Route path='recover' element={<ForgotPassword />} />
-          <Route path='project' element={<CreateProject />}/>
-          <PrivateRoute path='projects-list' Component={WorksPage}/>
-          <Route path='*' element={<ErrPage />} />
-      </Route>
-    </Routes>
+  <>
+    <Router>
+      <Header />
+      <Routes>
+            <Route index element={<Root />} />
+            <Route path='login' element={<LoginForm />} />
+            <Route path='register' element={<SignUpForm />} />
+            <Route path='recover' element={<ForgotPassword />} />
+            <Route path='create-project' element={<CreateProject />}/>
+            <Route path='projects' element={<Projects />}/>
+            {/* <Route path='not-auth' element={<NotAuthPage />}/> */}
+            <Route path='current-project' element={<CurrentProject />}/>
+            <Route path='*' element={<ErrPage />} />
+      </Routes>
+    </Router>
+  </>
 
 )

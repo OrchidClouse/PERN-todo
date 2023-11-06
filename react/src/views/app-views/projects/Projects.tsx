@@ -1,23 +1,24 @@
 import { Link, useNavigate } from "react-router-dom";
+import { getMe, logout } from "api/auth";
+import {useEffect} from 'react'
 
-const WorksPage = () => {
-
+export const Projects = () => {
+    // const navigate = useNavigate();
     let navigate = useNavigate();
-
-    const routeChange = () => {
-        const path = `/project`;
-        navigate(path);
-    }
-
+    console.log(getMe())
+    
     return (
         <>
+        <button onClick={() => logout()}>LogOut</button>
             <div>
                 <div className='w-full'>
                     <h1 className='text-3xl ml-7 font-medium mt-10'>Your projects</h1>
                 </div>
                 <div className='justify-items-start flex w-full bg-slate-100 mt-10'>
-                    <div className='border-2 w-64 h-[200px] rounded-md m-2 bg-white'>
-                        <div className={"w-10 rounded-md bg-purple-400 "} />
+
+
+
+                    <div className='border-4 border-purple-400 w-64 h-[200px] rounded-md m-2 bg-white'>
                         <Link className='' to="">
                             <p className='pl-16 pt-5'>Project name</p>
                             <p className=' ml-[70px] text-xs pl-4'>Software</p>
@@ -32,11 +33,14 @@ const WorksPage = () => {
                             <div>
                                 <Link to="/" className='hover:bg-sky-100 rounded-md pl-4 text-sm'>• Completed task</Link>
                             </div>
+                            {/* <div className=" bg-purple-400 rounded-md w-full "> .,</div> */}
                         </div>
 
                     </div>
-                    {/* <div className='border-2 w-64 h-[200px] rounded-md m-2 bg-white'>
-                        <div className={"w-5 rounded-md bg-purple-400 "} />
+
+
+
+                    <div className='border-4 border-pink-400 w-64 h-[200px] rounded-md m-2 bg-white'>
                         <Link className='' to="">
                             <p className='pl-16 pt-5'>Project name</p>
                             <p className=' ml-[70px] text-xs pl-4'>Software</p>
@@ -51,9 +55,13 @@ const WorksPage = () => {
                             <div>
                                 <Link to="/" className='hover:bg-sky-100 rounded-md pl-4 text-sm'>• Completed task</Link>
                             </div>
+                            {/* <div className=" bg-purple-400 rounded-md w-full "> .,</div> */}
                         </div>
 
-                    </div> */}
+
+
+                    </div>
+                    
                 </div>
 
                 <div className={"h-[500px] justify-items-center hidden md:block relative"}>
@@ -71,11 +79,9 @@ const WorksPage = () => {
                         <span></span>
                     </div>
                 </div>
-                    <p className={"absolute right-[45%] text-black font-bold"}>Вы еще ни над чем не работали</p>
+                    <p className={"absolute right-[49%] bottom-56 text-black font-bold text-lg"}>Ваши проекты </p>
             </div>
-
+            <button className="bg-blue-600" onClick={() => {navigate('/current-project');}}>fgaudsfysudfs</button>
         </>
     )
 }
-
-export default WorksPage

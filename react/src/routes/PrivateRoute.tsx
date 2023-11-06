@@ -1,27 +1,23 @@
-import { Navigate, useLocation} from 'react-router-dom'
-import * as Api from '../api'
-import { Route } from 'react-router-dom';
-import { ReactNode, useEffect } from 'react';
-import { useAuth } from 'hooks/useAuth';
+// import React, { ComponentType } from 'react';
+// import { Route, useNavigate } from 'react-router-dom';
+// import { useAuth } from 'hooks/useAuth';
 
-interface IPrivateRouteProps {
-	Component: React.ComponentType;
-	path: string
-}
+// interface IPrivateRouteProps {
+//   path: string;
+//   component: any;
+// }
 
+// export const PrivateRoute: React.FC<IPrivateRouteProps> = ({ component: Component, ...rest }) => {
+//   const { authenticated } = useAuth();
+//   const navigate = useNavigate();
 
+//   if (!authenticated) {
+//     navigate("/not-auth");
+//   }
 
-export const PrivateRoute: React.FC<IPrivateRouteProps> = ({ Component, path }) => {
-	const location = useLocation()
-	let {loading,authenticated} = useAuth();
-
-	return (
-		<Route
-			path={path}
-			children={authenticated
-			? <Component />
-			: <Navigate to="/login" replace />
-			}
-	  	/>
-	  );
-}
+//   return (
+//     <Route {...rest}>
+//       {authenticated ? <Component /> : null}
+//     </Route>
+//   );
+// };

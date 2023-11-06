@@ -1,1 +1,1 @@
-export * from './SimplePage'
+export * from './ProjectCard'
