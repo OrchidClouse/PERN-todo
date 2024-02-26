@@ -6,6 +6,7 @@ export type User = {
 
 
 export type UserDetails = {
+	user?: User;
 	department?: string;
 	organization?: string;
 	geo?: string;

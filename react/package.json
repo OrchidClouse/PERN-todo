@@ -24,6 +24,7 @@
     "react-router-dom": "^6.11.2",
     "react-scripts": "5.0.1",
     "react-svg": "^16.1.13",
+    "react-toastify": "^10.0.4",
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
     "sass": "^1.69.0",

@@ -4,15 +4,17 @@ import { Avatar, Button, Modal } from 'antd';
 import {useEffect, useState} from 'react'
 import { UserOutlined } from '@ant-design/icons';
 import {logout, getMe} from 'api/auth'
+import { User } from 'types/usersTypes';
 
 export const ProjectHeader = () => {
 
 	const [isModalOpen, setIsModalOpen] = useState(false);
-	const [userInfo, setUserInfo] = useState({});
+	const [userInfo, setUserInfo] = useState<User>();
 
 	useEffect(() => {
 		getMe().then((res) => {
-			
+			setUserInfo(res)
+			console.log(userInfo)
 		})
 	}, [])
 
@@ -30,7 +32,6 @@ export const ProjectHeader = () => {
 
   return (
     <header className="bg-white border-b-2">
-        
         <div 
           className="mx-auto flex flex-1 h-16 items-center gap-8 px-4 sm:px-6 lg:px-8 w-full my-2 justify-normal"
         >
@@ -43,21 +44,21 @@ export const ProjectHeader = () => {
             <div className="flex flex-1 items-center md:justify-between">
 
 
-                <div className="flex items-center gap-4">
+                <div className="flex gap-4 absolute right-5">
 					<Avatar
-						className=' cursor-pointer'
+						className='cursor-pointer'
 						onClick={showModal}
-					 	icon={<UserOutlined />} 
+					 	icon={<UserOutlined className='relative bottom-1'/>} 
 					/>
 					<Modal style={{ top: 5, left: 200, }} 
 						title="ВЫХОД" 
-						open={isModalOpen} 
+						open={isModalOpen}
 						onOk={handleOk} 
 						onCancel={handleCancel}
 						okButtonProps={{ style: { backgroundColor: '#1677ff' } }}
 					>
-						<p>Some contents...</p>
-						<p>Some contents...</p>
+						<div>{userInfo?.name}</div>
+						<div>{userInfo?.email}</div>
 						<Button onClick={() => logout()}>Выйти</Button>
 					</Modal>
                 </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Link,useNavigate} from "react-router-dom";
 import {DefaultLogo} from 'Components';
 import {Form, Button, Input, Checkbox} from "antd"
@@ -8,7 +8,11 @@ import { setCookie } from 'nookies';
 import { getMe } from 'api/auth'
 
 export const LoginForm = () => {
-
+  useEffect(() => {
+    getMe().then((res) => {
+      // console.log(res)
+    })
+  }, [])
   let navigate = useNavigate(); 
 
   const onSubmit = async (values: LoginFormDTO) => {
@@ -34,7 +38,7 @@ export const LoginForm = () => {
             Login
           </h2>
         </div>
-        <Form
+        <Form 
             className="mt-10 text-start sm:mx-auto sm:w-full sm:px-4 sm:max-w-sm"
             name="login"
             labelCol={{ span: 8 }}

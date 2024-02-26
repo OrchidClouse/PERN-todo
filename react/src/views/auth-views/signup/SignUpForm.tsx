@@ -7,7 +7,7 @@ import { RegisterFormDTO } from 'api/auth.dto';
 import * as Api from '../../../api'
 import { setCookie } from 'nookies';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUser } from 'store/users/usersActions';
+// import { setUser } from 'store/users/usersActions';
 import { RootState } from 'store';
 
 

@@ -26,3 +26,8 @@ export interface Project {
 	user: User; 
 	tasks: Task[]; 
 }
+
+export interface CreateTaskDTO {
+	name: string;
+	description?: string;
+}
