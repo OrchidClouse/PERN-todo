@@ -56,18 +56,18 @@ export const SignUpForm = () => {
     }
 
     return (
-        <div>
-            <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                <DefaultLogo width="w-32" margin="mt-10" />
+        <div className="flex justify-center flex-col items-center">
+            <div>
+                {/* <DefaultLogo width="w-32" margin="mt-10" /> */}
                 <h2 className="mt-8 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                    Sign up
+                    Зарегистрироваться
                 </h2>
             </div>
             <Form
-                className="mt-10 text-start sm:mx-auto sm:w-full sm:px-4 sm:max-w-sm"
-                labelCol={{ span: 8 }}
-                wrapperCol={{ span: 16 }}
-                style={{ maxWidth: 600 }}
+                className="flex justify-center items-center flex-col mt-10"
+                // labelCol={{ span: 8 }}
+                // wrapperCol={{ span: 16 }}
+                style={{ maxWidth: 720 }}
                 initialValues={{ remember: true }}
                 onFinish={submitHandler}
                 onFinishFailed={() => console.log('xyeta')}
@@ -75,32 +75,38 @@ export const SignUpForm = () => {
             >
 
                 <Form.Item
+                    labelCol={{ span: 24 }}
                     label="Email"
                     name="email"
+                    className=" w-full"
                     rules={[{ required: true, message: 'Please input your email!', type: 'email'}]}
                 >
-                    <Input className="w-32 md:w-44 lg:w-56" onChange={getData} value={values.email} />
+                    <Input className="w-full" onChange={getData} value={values.email} />
                 </Form.Item>
                 <Form.Item
+                className=" w-full"
+                    labelCol={{ span: 24 }}
                     label="Name"
                     name="name"
                     rules={[{ required: true, message: 'Please input your name!' }]}
                 >
-                    <Input  className="w-32 md:w-44 lg:w-56" onChange={getData} value={values.name}/>
+                    <Input  className="w-full" onChange={getData} value={values.name}/>
                 </Form.Item>
 
                 <Form.Item
+                    labelCol={{ span: 24 }}
                     label="Password"
                     name="password"
+                    className=" w-full"
                     rules={[{ required: true, message: 'Please input your password!' }]}
                 >
-                    <Input.Password className="w-32 md:w-44 lg:w-56" onChange={getData} value={values.password} />
+                    <Input.Password className="w-full" onChange={getData} value={values.password} />
 
                 </Form.Item>
 
-                <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                    <Button className="bg-blue-500 w-24" type="primary" htmlType="submit">
-                        Sign up
+                <Form.Item>
+                    <Button className="bg-blue-500" type="primary" htmlType="submit">
+                        Зарегистрироваться
                     </Button>
                 </Form.Item>
             </Form>

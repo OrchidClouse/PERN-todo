@@ -14,11 +14,11 @@ import { Button } from "antd";
 export const Projects = () => {
     const [user, setUser] = useState<User>()
     const [projects, setProjects] = useState<Project[]>()
-    useEffect(() => {
-        getMe().then((res) => {
-            setUser(res)
-        })
-    }, [])
+    // useEffect(() => {
+    //     getMe().then((res) => {
+    //         setUser(res)
+    //     })
+    // }, [])
     
     // useEffect(() => {
     //     async function createTaskFunc() {

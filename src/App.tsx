@@ -9,17 +9,27 @@ import { LoginForm } from 'views/auth-views/login/LoginForm'
 import { Layout, Header } from 'Components'
 import { CreateProject } from 'views/app-views/create-project'
 import { CurrentProject } from 'views/app-views/currentProject'
-import { getMe } from 'api/auth'
+// import { getMe } from 'api/auth'
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch } from 'store/index'; // Импорт вашего типа Dispatch
+import { getMe, selectUser, selectStatus, selectError, logout } from 'store/user/usersSlice';
 // import NotAuthPage from 'views/auth-views/not-auth-page'
 
 export const App = () => {
   const [isAuth, setIsAuth] = useState(false);
-
+  const dispatch = useDispatch<AppDispatch>();
+  // const user = useSelector(selectUser);
+  // const status = useSelector(selectStatus);
+  // const error = useSelector(selectError);
+  // useEffect(() => {
+  //   getMe()?.then((originalUserInfo) => {
+  //     if(originalUserInfo) setIsAuth(true)
+  //   })
+  // }, [])
   useEffect(() => {
-    getMe()?.then((originalUserInfo) => {
-      if(originalUserInfo) setIsAuth(true)
-    })
-  }, [])
+    dispatch(getMe());
+  }, [dispatch]);
+  
 
   return (
     <>

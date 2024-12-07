@@ -8,11 +8,11 @@ import { setCookie } from 'nookies';
 import { getMe } from 'api/auth'
 
 export const LoginForm = () => {
-  useEffect(() => {
-    getMe().then((res) => {
-      // console.log(res)
-    })
-  }, [])
+  // useEffect(() => {
+  //   getMe().then((res) => {
+  //     // console.log(res)
+  //   })
+  // }, [])
   let navigate = useNavigate(); 
 
   const onSubmit = async (values: LoginFormDTO) => {
@@ -31,19 +31,17 @@ export const LoginForm = () => {
   }
 
   return (
-      <>
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <DefaultLogo width="w-32" margin="mt-10"/>
+      <div className='flex justify-center flex-col items-center'>
+        <div>
+          {/* <DefaultLogo width="w-32" margin="mt-10"/> */}
           <h2 className="mt-8 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Login
+            Войти
           </h2>
         </div>
         <Form 
-            className="mt-10 text-start sm:mx-auto sm:w-full sm:px-4 sm:max-w-sm"
+            className="flex justify-center items-center flex-col mt-10"
             name="login"
-            labelCol={{ span: 8 }}
-            wrapperCol={{ span: 16 }}
-            style={{ maxWidth: 600 }}
+            style={{ maxWidth: 720 }}
             initialValues={{ remember: true }}
             onFinish={onSubmit}
             onFinishFailed={() => console.log('xyeta')}
@@ -51,39 +49,44 @@ export const LoginForm = () => {
 
         >
           <Form.Item
-
+              labelCol={{ span: 24 }}
+              className="w-full"
               label="Email"
               name="email"
               rules={[{required: true, type: "email", message: "Enter correct email"}]}
           >
-            <Input className="w-32 md:w-44 lg:w-56" />
+            <Input className=" w-full" />
           </Form.Item>
           <Form.Item
-
+              labelCol={{ span: 24 }}
+              className=" w-full"
               label="Password"
               name="password"
               rules={[{required: true, message: "This field cannot be empty"}]}
           >
-            <Input.Password className="w-32 md:w-44 lg:w-56" />
+            <Input.Password className=" w-full" />
           </Form.Item>
-          <Form.Item name="forgot-password" wrapperCol={{ offset: 8, span: 13 }}>
-            <Link to="/forgot-password" >Forgot password?</Link>
+          <Form.Item className=" w-full mt-[-24px]" name="forgot-password" 
+          // wrapperCol={{ offset: 8, span: 13 }}
+          >
+            <Link to="/forgot-password" >Забыли пароль?</Link>
           </Form.Item>
-          <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 13 }}>
-            <Checkbox>Remember me</Checkbox>
+          <Form.Item className=" w-full mt-[-12px]" name="remember" valuePropName="checked" 
+          // wrapperCol={{ offset: 8, span: 13 }}
+          >
+            <Checkbox>Запомнить меня</Checkbox>
           </Form.Item>
           <Form.Item
-              wrapperCol={{ offset: 8, span: 16 }}
+            // className=" w-full"
           >
             <Button
-                className="bg-blue-500 w-24"
-                type="primary"
-                htmlType="submit"
+                className="bg-blue-500"
+              block type="primary" htmlType="submit"
             >
-              Login
+              Войти
             </Button>
           </Form.Item>
         </Form>
-      </>
+      </div>
   )
 }

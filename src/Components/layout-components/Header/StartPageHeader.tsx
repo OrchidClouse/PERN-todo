@@ -12,7 +12,7 @@ export const StartPageHeader = () => {
         >
             <Link className="block text-teal-600 justify-start" to="/">
               
-                <span className="sr-only">Home</span>
+                <span className="sr-only">Главная</span>
                 <DefaultLogo width="w-24"/>
             </Link>
 
@@ -21,13 +21,13 @@ export const StartPageHeader = () => {
                     <ul className="flex items-center gap-6 text-sm">
                         <li>
                             <Link className="text-gray-500 transition hover:text-gray-500/75" to="/">
-                                About
+                                О нас
                             </Link>
                         </li>
 
                         <li>
                             <Link className="text-gray-500 transition hover:text-gray-500/75" to="/">
-                                Careers
+                                Карьера
                             </Link>
                         </li>
                     </ul>
@@ -39,14 +39,14 @@ export const StartPageHeader = () => {
                           className="block rounded-md bg-blue-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-500"
                           to="/login"
                         >
-                            Login
+                            Войти
                         </Link>
 
                         <Link
                           className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-blue-500 transition hover:text-blue-500/75 sm:block"
                           to="/register"
                         >
-                            Register
+                            Зарегистрироваться
                         </Link>
 
                     </div>
@@ -54,7 +54,7 @@ export const StartPageHeader = () => {
                     <button
                       className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
                     >
-                        <span className="sr-only">Toggle menu</span>
+                        <span className="sr-only">Меню</span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-5 w-5"
