@@ -9,6 +9,7 @@ import { createTask } from "api/project";
 import { Task } from "types/taskTypes";
 import { useParams } from 'react-router-dom';
 import { getProjectById } from 'api/project';
+import { Button } from "antd";
 
 export const Projects = () => {
     const [user, setUser] = useState<User>()
@@ -73,12 +74,13 @@ return navigate(`/current-project/${project?.id}`)
         <>
             <div className="m-6">
                 <div className='w-full'>
-                    <h1 className='text-3xl font-medium'>Your projects</h1>
+                    <h1 className='text-3xl font-medium'>Ваши проекты</h1>
                 </div>
-                <div className='flex'>
-
+                <div className='flex gap-3'>
                     {projects?.map(project => (
-                        <div onClick={() => navigate(`/current-project/${project?.id}`)} key={project?.id} className='border-4 gradient-border rounded-[12p] w-64 h-[200px] m-2 bg-white'>
+                        <div onClick={() => navigate(`/current-project/${project?.id}`)} key={project?.id} 
+                            className='border-4 gradient-border mt-2 rounded-[12p] w-64 h-[200px] bg-white'
+                        >
                             <div>
                             <Link className='hover:bg-sky-100 text-center' to="">
                                 <p className='mt-4'>{project?.name}</p>
@@ -105,7 +107,11 @@ return navigate(`/current-project/${project?.id}`)
                 <div className={"h-[500px] justify-items-center hidden md:block relative"}>
                     {/* <img src="https://wmpics.space/di-VQBX.png" className={" absolute right-[44%] bottom-[30%]"}></img> */}
                     <div className={"h-[30px] border-b-2"}>
-                        <button onClick={() => { navigate('/create-project') }} className={"pr-2 w-52 absolute bottom-12 text-white left-[43%] h-[40px] bg-blue-500 rounded-md text-center inline-block"}>Create New Project</button>
+                        <Button onClick={() => { navigate('/create-project') }} 
+                            className={"pr-2 w-52 absolute bottom-12 text-white left-[43%] h-[40px] bg-blue-500 rounded-md text-center inline-block"}
+                        >
+                            Создать новый проект
+                        </Button>
                     </div>
                     <div>
                         <span></span>

@@ -1,14 +1,13 @@
 import {DefaultLogo} from 'Components';
-import {Link} from "react-router-dom";
-import { Avatar, Button, Modal } from 'antd';
+import {Link, useNavigate} from "react-router-dom";
+import { Avatar, Button, Dropdown, MenuProps, Modal } from 'antd';
 import {useEffect, useState} from 'react'
 import { UserOutlined } from '@ant-design/icons';
 import {logout, getMe} from 'api/auth'
 import { User } from 'types/usersTypes';
 
 export const ProjectHeader = () => {
-
-	const [isModalOpen, setIsModalOpen] = useState(false);
+	const navigation = useNavigate()
 	const [userInfo, setUserInfo] = useState<User>();
 
 	useEffect(() => {
@@ -17,18 +16,29 @@ export const ProjectHeader = () => {
 			console.log(userInfo)
 		})
 	}, [])
+  
+	const handleLogout = () => {
+		logout()
+		navigation("/")
+	}
 
-	const showModal = () => {
-	  setIsModalOpen(true);
-	};
-  
-	const handleOk = () => {
-	  setIsModalOpen(false);
-	};
-  
-	const handleCancel = () => {
-	  setIsModalOpen(false);
-	};
+	const items: MenuProps['items'] = [
+		{
+		  label: <div><h3>Имя</h3>{userInfo?.name}</div>,
+		  key: '0',
+		},
+		{
+		  label: <div><h3>Email</h3>{userInfo?.email}</div>,
+		  key: '1',
+		},
+		{
+		  type: 'divider',
+		},
+		{
+		  label: <Button onClick={handleLogout}>Выйти</Button>,
+		  key: '3',
+		},
+	  ];
 
   return (
     <header className="bg-white border-b-2">
@@ -45,22 +55,20 @@ export const ProjectHeader = () => {
 
 
                 <div className="flex gap-4 absolute right-5">
-					<Avatar
-						className='cursor-pointer'
-						onClick={showModal}
-					 	icon={<UserOutlined className='relative bottom-1'/>} 
-					/>
-					<Modal style={{ top: 5, left: 200, }} 
-						title="ВЫХОД" 
-						open={isModalOpen}
-						onOk={handleOk} 
-						onCancel={handleCancel}
-						okButtonProps={{ style: { backgroundColor: '#1677ff' } }}
+					<Dropdown
+						trigger={['click']}
+						menu={{ items }}
+						// title="ВЫХОД" 
+						// open={isModalOpen}
+						// onOk={handleOk} 
+						// onCancel={handleCancel}
+						// okButtonProps={{ style: { backgroundColor: '#1677ff' } }}
 					>
-						<div>{userInfo?.name}</div>
-						<div>{userInfo?.email}</div>
-						<Button onClick={() => logout()}>Выйти</Button>
-					</Modal>
+						<Avatar
+							className='cursor-pointer'
+							icon={<UserOutlined className='relative bottom-1'/>} 
+						/>
+					</Dropdown>
                 </div>
 
             </div>

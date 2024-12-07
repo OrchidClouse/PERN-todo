@@ -54,16 +54,16 @@ export const CreateProject = () => {
           src='https://wmpics.space/di-KSU8.png'
         />
         </div>
-        <div className='flex absolute left-1/3 '>
+        <div className='flex m-auto'>
           <div className='mt-40 relative'>
             <div className='pt-20 mb-3 w-72'>
-              <h1 className='text-3xl text-center mb-6'>Create Project</h1>
+              <h1 className='text-3xl text-center mb-6'>Создать проект</h1>
               <label htmlFor="name" className="block font-medium leading-6 text-xs text-gray-900 text-left ">
-                Name Project*
+                Имя проекта
               </label>
               <Input 
                 size = "large"
-                placeholder="Name your project"
+                placeholder="Имя вашего проекта"
                 value={formValues.name}
                 onChange={(e: any) => {
                   setFormValues(prevState => ({
@@ -80,7 +80,7 @@ export const CreateProject = () => {
               className='bg-blue-600 w-72'
               disabled={!isUserLoaded}
             >
-              Create Project
+              Создать проект
             </Button>
           </div>
         </div>
